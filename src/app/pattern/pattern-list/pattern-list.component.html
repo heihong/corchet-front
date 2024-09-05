@@ -1,0 +1,9 @@
+@if(patterns){
+    @for(pattern of patterns; track pattern.title; let index = $index){
+        <a (click)="goToPattern(pattern.title)" class="pattern-list__link"><h1>Titre: {{pattern.title}}</h1></a>
+        <p>Nombre de chapitre : {{pattern.chapter.length}}</p>
+    } 
+}
+
+
+        

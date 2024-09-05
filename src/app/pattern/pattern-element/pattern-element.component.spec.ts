@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PatternComponent } from './pattern.component';
+import { PatternElementComponent } from './pattern-element.component';
 
-describe('PatternComponent', () => {
-  let component: PatternComponent;
-  let fixture: ComponentFixture<PatternComponent>;
+describe('PatternElementComponent', () => {
+  let component: PatternElementComponent;
+  let fixture: ComponentFixture<PatternElementComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PatternComponent]
+      imports: [PatternElementComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(PatternComponent);
+    fixture = TestBed.createComponent(PatternElementComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

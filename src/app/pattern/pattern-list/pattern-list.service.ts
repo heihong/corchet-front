@@ -6,7 +6,5 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PatternService {
   http = inject(HttpClient);
-  constructor() {}
-
-  readonly getPattern$ = () => this.http.get('http://localhost:3000/pattern');
+  readonly getPatterns$ = () => this.http.get('http://localhost:3000/pattern');
 }

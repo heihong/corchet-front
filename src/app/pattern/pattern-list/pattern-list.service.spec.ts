@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { PatternService } from './pattern.service';
+import { PatternService } from './pattern-list.service';
 
 describe('PatternService', () => {
   let service: PatternService;
