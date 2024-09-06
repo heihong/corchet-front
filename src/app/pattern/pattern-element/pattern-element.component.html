@@ -1,7 +1,7 @@
 @if(pattern){
-    <h1>Titre: {{pattern.title}}</h1>
-    <p>Nombre de chapitre : {{pattern.chapter.length}}</p>
-    @for(chapter of pattern.chapter; track chapter; let index = $index){
+    <h1>Titre: {{pattern[0].title}}</h1>
+    <p>Nombre de chapitre : {{pattern[0].chapter.length}}</p>
+    @for(chapter of pattern[0].chapter; track chapter; let index = $index){
          <h3>Chapitre {{index+1}} : {{chapter.title}}</h3>
          <ul>
              @for(todo of chapter.todos; track todo.id){

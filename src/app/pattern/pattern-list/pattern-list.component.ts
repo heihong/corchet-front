@@ -1,5 +1,6 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { PatternI } from './pattern-list.interface';
 
 @Component({
   selector: 'app-pattern-list',
@@ -8,13 +9,13 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './pattern-list.component.html',
   styleUrl: './pattern-list.component.scss',
 })
-export class PatternListComponent {
+export class PatternListComponent implements OnInit {
   activatedRoute = inject(ActivatedRoute);
   router = inject(Router);
-  patterns: any;
+  patterns!: PatternI[];
   ngOnInit(): void {
     this.activatedRoute.data.subscribe((response: any) => {
-      this.patterns = response.patterns;
+      this.patterns = response.patterns as PatternI[];
     });
   }
 

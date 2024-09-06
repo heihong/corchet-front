@@ -1,0 +1,29 @@
+<h1>Liste des actions : </h1>
+<div></div>
+<ul>
+ @if(todos|async; as todo){
+    @for(todo of todo; track todo.id){
+        <li>{{todo.action}}</li>
+    }
+ }
+</ul>
+<div>
+    <button (click)="moreTodo()" class="todo-list__button">afficher plus de action</button>
+    <div class="input-container">
+        <label for="search">Voulez vous rechercher une action:</label>
+        <textarea id="search" type="text" [formControl]="search"></textarea>
+        <label for="number">Le nombre de maille</label>
+        <input id="number" type="number" [formControl]="number"/>
+        <button (click)="findTodo()">envoyé</button>
+    </div>
+    Ajouter l'action si non présent
+    <button (click)="addTodo()">ajouter</button>
+    <ul>  
+        @if(searchResult|async; as todo){
+            @for(todo of todo; track todo.id){
+                <li>{{todo.action}}</li>
+            }
+        }
+    </ul>
+    
+</div>
