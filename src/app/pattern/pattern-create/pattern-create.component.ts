@@ -16,7 +16,7 @@ import { TodoService } from '../../todo/todo.service';
 @Component({
   selector: 'app-pattern-create',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, TodoListComponent, CommonModule],
+  imports: [FormsModule, ReactiveFormsModule, CommonModule],
   templateUrl: './pattern-create.component.html',
   styleUrl: './pattern-create.component.scss',
 })
