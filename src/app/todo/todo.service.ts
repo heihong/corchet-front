@@ -6,22 +6,22 @@ import { TodoI } from './todo.interface';
 @Injectable({
   providedIn: 'root',
 })
-export class TodoListService {
+export class TodoService {
   http = inject(HttpClient);
+  url = 'http://localhost:3000/todos';
   getAllTodos$(limit: number): Observable<TodoI[]> {
-    return this.http.post('http://localhost:3000/todosByLimit', {
+    return this.http.post(`${this.url}/todosByLimit`, {
       limit,
     }) as Observable<TodoI[]>;
   }
 
   searchTodo$(search: string | null): Observable<TodoI[]> {
-    return this.http.post('http://localhost:3000/findTodos', {
+    return this.http.post(`${this.url}/findTodo`, {
       search,
     }) as Observable<TodoI[]>;
   }
 
   addTodo$(todo: TodoI): any {
-    console.log(todo);
-    return this.http.post('http://localhost:3000/todos', todo);
+    return this.http.post(`${this.url}/createTodo`, todo);
   }
 }

@@ -1,4 +1,11 @@
 .pattern-list{
+    padding: 10px;
+    &__elt{
+        border: 1px solid black;
+        width: fit-content;
+        padding: 10px;
+      
+    }
     &__link{
         cursor: pointer;
         text-decoration:underline;

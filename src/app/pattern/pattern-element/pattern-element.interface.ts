@@ -1,4 +1,4 @@
-import { TodoI } from '../../todo/todo-list/todo.interface';
+import { TodoI } from '../../todo/todo.interface';
 
 export interface PatternEltI {
   title: string;

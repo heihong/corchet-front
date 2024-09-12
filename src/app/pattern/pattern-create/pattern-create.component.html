@@ -1,0 +1,47 @@
+<div class="pattern-create">
+    <form [formGroup]="patternForm" >
+        <div class="input-container">
+            <label for="pattern-title">{{_patternCreateTexts.patterntitle}}</label>
+            <input id="pattern-title" type="text" formArrayName="patternTitle" [placeholder]="_patternCreateTexts.patterntitle"/>
+        </div>
+        <ng-container formArrayName="chapters">
+          @for ( chapter of chapters.controls; track chapter; let index = $index) {
+          <div [formGroupName]="index">
+                <div class="input-container">
+                    <label for="chapter-title">{{_patternCreateTexts.addChapter}}</label>
+                    <input id="chapter-title" formArrayName="chapterTitle" [placeholder]="_patternCreateTexts.chapterTitle" />
+                </div>
+          </div>
+          }
+        </ng-container>
+        @if(chapters.controls){
+            <div class="pattern-create__button">
+                <button (click)="addChapter()">{{_patternCreateTexts.addChapter}}</button>
+            </div>
+            @if(chapters.controls.length>=1){
+                <div class="input-container">
+                    <label for="searchTodo">{{_patternCreateTexts.searchTodo}}</label>
+                    <input id="searchTodo" formControlName="searchTodo" [placeholder]="_patternCreateTexts.titleTodo" />
+                </div>
+                <div class="pattern-create__button">
+                    <button (click)="findTodo()">{{_patternCreateTexts.send}}</button>
+                </div>
+                <ul>  
+                    @if(searchResult|async; as todo){
+                        @for(todo of todo; track todo.id){
+                            <li>{{todo.action}}</li>
+                        }
+                    }
+                </ul>
+                <div class="pattern-create__button">
+                    <button (click)="findTodo()">{{_patternCreateTexts.addTodo}}</button>
+                </div>
+                
+            }
+            
+        }
+      </form>
+</div>
+
+
+

@@ -4,10 +4,11 @@ import { patternListResolver } from './pattern/pattern-list/pattern-list.resolve
 import { PatternElementComponent } from './pattern/pattern-element/pattern-element.component';
 import { patternElementResolver } from './pattern/pattern-element/pattern-element.resolver';
 import { TodoListComponent } from './todo/todo-list/todo-list.component';
+import { PatternCreateComponent } from './pattern/pattern-create/pattern-create.component';
 
 export const routes: Routes = [
   {
-    path: 'patterns',
+    path: '',
     component: PatternListComponent,
     resolve: { patterns: patternListResolver },
   },
@@ -17,7 +18,7 @@ export const routes: Routes = [
     resolve: { pattern: patternElementResolver },
   },
   {
-    path: 'todos',
-    component: TodoListComponent,
+    path: 'add',
+    component: PatternCreateComponent,
   },
 ];

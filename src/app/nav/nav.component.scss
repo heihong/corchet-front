@@ -1,0 +1,9 @@
+.nav {
+    border-top: 1px solid black;
+    display: flex;
+    background-color: blue;
+    &__link {
+        padding: 10px;
+        color: white;
+    }
+}
