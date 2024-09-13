@@ -1,9 +1,11 @@
 .pattern-list{
     padding: 10px;
+    display: flex;
     &__elt{
         border: 1px solid black;
         width: fit-content;
         padding: 10px;
+        margin-right: 10px;
       
     }
     &__link{

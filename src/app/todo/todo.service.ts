@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { map, Observable, tap } from 'rxjs';
+import { map, Observable, switchMap, tap } from 'rxjs';
 import { TodoI } from './todo.interface';
 
 @Injectable({
@@ -15,13 +15,15 @@ export class TodoService {
     }) as Observable<TodoI[]>;
   }
 
-  searchTodo$(search: string | null): Observable<TodoI[]> {
-    return this.http.post(`${this.url}/findTodo`, {
-      search,
-    }) as Observable<TodoI[]>;
+  searchTodo$(todo: TodoI): Observable<TodoI[]> {
+    return this.http.post(`${this.url}/findTodo`, { ...todo }) as Observable<
+      TodoI[]
+    >;
   }
 
   addTodo$(todo: TodoI): any {
-    return this.http.post(`${this.url}/createTodo`, todo);
+    return this.http.post(`${this.url}/createTodo`, todo, {
+      responseType: 'text',
+    });
   }
 }

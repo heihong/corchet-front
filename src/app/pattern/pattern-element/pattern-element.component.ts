@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PatternEltI } from './pattern-element.interface';
-import { patternEltTexts } from '../../constants/texts';
+import { patternEltTexts } from '../../share/texts';
 
 @Component({
   selector: 'app-pattern-element',

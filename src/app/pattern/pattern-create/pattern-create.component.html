@@ -1,46 +1,34 @@
 <div class="pattern-create">
-    <form [formGroup]="patternForm" >
-        <div class="input-container">
-            <label for="pattern-title">{{_patternCreateTexts.patterntitle}}</label>
-            <input id="pattern-title" type="text" formArrayName="patternTitle" [placeholder]="_patternCreateTexts.patterntitle"/>
-        </div>
-        <ng-container formArrayName="chapters">
-          @for ( chapter of chapters.controls; track chapter; let index = $index) {
-          <div [formGroupName]="index">
-                <div class="input-container">
-                    <label for="chapter-title">{{_patternCreateTexts.addChapter}}</label>
-                    <input id="chapter-title" formArrayName="chapterTitle" [placeholder]="_patternCreateTexts.chapterTitle" />
-                </div>
-          </div>
-          }
-        </ng-container>
-        @if(chapters.controls){
-            <div class="pattern-create__button">
-                <button (click)="addChapter()">{{_patternCreateTexts.addChapter}}</button>
-            </div>
-            @if(chapters.controls.length>=1){
-                <div class="input-container">
-                    <label for="searchTodo">{{_patternCreateTexts.searchTodo}}</label>
-                    <input id="searchTodo" formControlName="searchTodo" [placeholder]="_patternCreateTexts.titleTodo" />
-                </div>
-                <div class="pattern-create__button">
-                    <button (click)="findTodo()">{{_patternCreateTexts.send}}</button>
-                </div>
-                <ul>  
-                    @if(searchResult|async; as todo){
-                        @for(todo of todo; track todo.id){
-                            <li>{{todo.action}}</li>
-                        }
+    @if(pattern.title==''){
+        <button mat-flat-button color="primary" (click)="openDialogPattern()">{{_patternCreateTexts.addPattern}}</button>
+    }
+    @else{
+        <h1>{{_patternCreateTexts.patterntitle}} {{pattern.title}}</h1>
+        <button mat-flat-button color="primary" (click)="openDialogChapter()">{{_patternCreateTexts.addChapter}}</button>
+    }
+    @if(pattern){
+
+        <ul>
+            @for(elt of pattern.chapter; track elt.id){
+                <li><h2>{{_patternCreateTexts.chapterTitle}} {{elt?.title}}</h2></li>
+                <ul>
+                    @for(todo of elt.todos; track todo.id){
+                        <li>
+                            <span>{{todo.action}}</span>
+                            @if(todo.nbstitch){ 
+                                <span> ({{todo.nbstitch}})</span>
+                            }
+                        </li>
                     }
                 </ul>
-                <div class="pattern-create__button">
-                    <button (click)="findTodo()">{{_patternCreateTexts.addTodo}}</button>
-                </div>
-                
-            }
-            
+                }
+        </ul>
+        @if(pattern.chapter.length != 0){
+            <button mat-flat-button color="accent" (click)="sendPattern()">{{_patternCreateTexts.send}}</button>
         }
-      </form>
+       
+    }
+
 </div>
 
 

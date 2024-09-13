@@ -8,18 +8,20 @@ export const patternListTexts = {
 };
 
 export const patternCreateTexts = {
-  patterntitle: `Titre du pattern`,
+  addPattern: 'Ajouter un pattern',
+  patterntitle: `Titre du pattern :`,
   addChapter: 'Ajouter un chapitre',
-  chapterTitle: 'titre du chapitre',
+  chapterTitle: 'Titre du chapitre :',
   addTodo: `Ajouter l'action si non présent`,
   searchTodo: `Voulez vous rechercher une action :`,
   titleTodo: `Titre de action`,
-  nbStitch: 'Le nombre de maille :',
-  send: 'Rechercher',
+  search: 'Rechercher',
+  send: 'Envoyer',
 };
 
 export const navTexts = {
   addPattern: addPattern,
+  home: 'liste Pattern',
 };
 
 export const patternEltTexts = {
@@ -28,9 +30,21 @@ export const patternEltTexts = {
   chapter: 'Chapitre',
 };
 
-export const todoListTexts = {
-  searchTodo: `Voulez vous rechercher une action :`,
+export const modalChapterTexts = {
+  patterntitle: `Titre du pattern : `,
+  chapterTitle: 'Titre du chapitre :',
+  searchTodo: `Rechercher une action :`,
   nbStitch: 'Le nombre de maille :',
-  send: 'Chapitre',
-  addTodo: `Ajouter l'action si non présent`,
+  addTodo: `Ajouter l'action`,
+  noResult: 'Non resultat',
+  titleTodo: `Titre de action`,
+  cancel: 'Annuler',
+  send: 'Rechercher',
+  add: 'Ajouter',
+};
+
+export const modalPatternTexts = {
+  patterntitle: `Titre du pattern : `,
+  cancel: 'Annuler',
+  add: 'Ajouter',
 };

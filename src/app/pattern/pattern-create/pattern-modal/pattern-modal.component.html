@@ -1,0 +1,12 @@
+
+<mat-dialog-content>
+    <mat-form-field>
+        <mat-label>{{_modalPatternTexts.patterntitle}}</mat-label>
+        <input matInput [(ngModel)]="data.patternTitle">
+    </mat-form-field>
+    
+    <mat-dialog-actions class="">
+        <button mat-flat-button color="accent" (click)="cancel()">{{_modalPatternTexts.cancel}}</button>
+        <button mat-flat-button color="primary" [mat-dialog-close]="data.patternTitle">{{_modalPatternTexts.add}}</button>
+      </mat-dialog-actions>
+</mat-dialog-content>

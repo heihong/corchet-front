@@ -1,0 +1,41 @@
+<h1 mat-dialog-title>{{_modalChapterTexts.patterntitle}} {{data.patternTitle}}</h1>
+<mat-dialog-content>
+    <mat-form-field>
+        <mat-label>{{_modalChapterTexts.chapterTitle}}</mat-label>
+        <input matInput [(ngModel)]="data.chapterTitle">
+    </mat-form-field>
+    @if(data.chapterTitle){
+        <div>
+            <mat-form-field>
+                <mat-label>{{_modalChapterTexts.searchTodo}}</mat-label>
+                <input matInput [(ngModel)]="action">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>{{_modalChapterTexts.nbStitch}}</mat-label>
+                <input matInput [(ngModel)]="nbstitch">
+            </mat-form-field>
+            <div class="pattern-create__button">
+                <button  mat-stroked-button color="primary" (click)="findTodo()">{{_modalChapterTexts.send}}</button>
+            </div>
+        </div>
+    }
+    <ul>  
+        @if(searchResult|async; as todos){
+            @for(todo of todos; track todo.id){
+                <li><mat-checkbox class="example-margin" (click)="addTodo(todo, $event)">{{todo.action}}</mat-checkbox></li>
+            }
+            @if(todos.length == 0){
+                <p>{{_modalChapterTexts.noResult}}</p>
+            }
+            @if(todos){
+                <button mat-stroked-button color="accent" (click)="createTodo({action, nbstitch})">{{_modalChapterTexts.addTodo}}</button>
+            }
+        }
+    </ul>
+    <mat-dialog-actions>
+        <button mat-flat-button color="accent" (click)="cancel()">{{_modalChapterTexts.cancel}}</button>
+        <button mat-flat-button color="primary" [mat-dialog-close]="{title: data.chapterTitle, todos}">{{_modalChapterTexts.add}}</button>
+    </mat-dialog-actions>
+</mat-dialog-content>

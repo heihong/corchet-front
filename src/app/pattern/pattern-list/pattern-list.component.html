@@ -1,12 +1,12 @@
 <div class="pattern-list">
-    <div class="pattern-list__elt">
-        @if(patterns){
-            @for(pattern of patterns; track pattern.title){
+    @if(patterns){
+        @for(pattern of patterns; track pattern.title){
+            <div class="pattern-list__elt">
                 <a (click)="goToPattern(pattern.title)" class="pattern-list__link"><h1>{{_patternListTexts.title}} {{pattern.title}}</h1></a>
                 <p>{{_patternListTexts.nbChapter}} {{pattern.chapter.length}}</p>
+            </div>
             } 
         }
-    </div>
 </div>
 
 

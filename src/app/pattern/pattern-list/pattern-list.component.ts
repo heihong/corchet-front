@@ -6,7 +6,7 @@ import {
   RouterModule,
 } from '@angular/router';
 import { PatternI } from './pattern-list.interface';
-import { patternListTexts } from '../../constants/texts';
+import { patternListTexts } from '../../share/texts';
 
 @Component({
   selector: 'app-pattern-list',
